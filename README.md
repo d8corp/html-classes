@@ -12,11 +12,11 @@ Or you can use [minified file](https://github.com/d8corp/html-classes/blob/maste
 <!doctype html>
 <html>
   <head>
-    <script src="htmlClasses.min.js"></script>
+    <script src="index.min.js"></script>
   </head>
   <body>
     <script>
-      console.log(htmlClasses('test'))
+      console.log(classes('test'))
     </script>
   </body>
 </html>
