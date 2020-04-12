@@ -1,0 +1,27 @@
+{
+  "name": "html-classes",
+  "version": "1.0.0-rc1",
+  "description": "Combine html classes",
+  "main": "index.js",
+  "module": "index.es6.js",
+  "browser": "index.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d8corp/html-classes.git"
+  },
+  "keywords": [
+    "html",
+    "classes",
+    "class",
+    "name",
+    "className",
+    "classNames",
+    "combine"
+  ],
+  "author": "Mikhail Lysikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d8corp/html-classes/issues"
+  },
+  "homepage": "https://github.com/d8corp/html-classes"
+}
