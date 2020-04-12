@@ -38,6 +38,8 @@ export default function classes (value?: any, ...other: any[]): string {
   return value
 }
 
-export function isIterable (value: object): value is any[] {
+function isIterable (value: object): value is any[] {
   return Symbol.iterator in value
 }
+
+classes.isIterable = isIterable

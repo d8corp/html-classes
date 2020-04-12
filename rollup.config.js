@@ -41,14 +41,14 @@ export default [{
   ...def,
   output: {
     dir: 'lib',
-    entryFileNames: '[name]' + pkg.browser.replace('index', ''),
+    entryFileNames: 'classes.min.js',
     format: 'iife',
-    name: 'classes'
+    name: 'classes',
+    plugins: [terser()]
   },
   plugins: [
     typescript({
       typescript: require('typescript')
-    }),
-    terser()
+    })
   ]
 }]
