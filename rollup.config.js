@@ -24,6 +24,23 @@ export default [{
   ...def,
   output: {
     dir: 'lib',
+    entryFileNames: 'light' + pkg.main.replace('index', ''),
+    format: 'cjs'
+  },
+  plugins: [
+    typescript({
+      typescript: require('typescript'),
+      tsconfigOverride: {
+        compilerOptions: {
+          downlevelIteration: false
+        }
+      }
+    })
+  ]
+}, {
+  ...def,
+  output: {
+    dir: 'lib',
     entryFileNames: '[name]' + pkg.module.replace('index', ''),
     format: 'es'
   },
@@ -49,6 +66,25 @@ export default [{
   plugins: [
     typescript({
       typescript: require('typescript')
+    })
+  ]
+}, {
+  ...def,
+  output: {
+    dir: 'lib',
+    entryFileNames: 'classes.light.js',
+    format: 'iife',
+    name: 'classes',
+    plugins: [terser()]
+  },
+  plugins: [
+    typescript({
+      typescript: require('typescript'),
+      tsconfigOverride: {
+        compilerOptions: {
+          downlevelIteration: false
+        }
+      }
     })
   ]
 }]

@@ -22,7 +22,7 @@ Or you can use [minified file](https://github.com/d8corp/html-classes/blob/maste
 </html>
 ```
 ## Using
-#### String
+##### String
 Any string value provides as is.
 ```javascript
 classes('test')
@@ -31,7 +31,7 @@ classes('test')
 classes('test1', 'test2')
 // 'test1 test2'
 ```
-#### Array
+##### Array
 Any array spreads like the `flat` method of an array.
 ```javascript
 classes(['test'])
@@ -43,7 +43,7 @@ classes(['test1', 'test2'])
 classes(['test1', ['test2']], 'test3')
 // 'test1 test2 test3'
 ```
-#### Object
+##### Object
 The key of the object will be used as a class when the value equals true.
 ```javascript
 classes({test: true})
@@ -56,7 +56,7 @@ classes({test1: () => true, test2: () => false})
 // 'test1'
 ```
 > The last example works that 'cause of the next definition.
-#### Function
+##### Function
 Any function will be called.
 ```javascript
 classes(() => 'test')
@@ -68,7 +68,7 @@ classes(() => ['test1', 'test2'])
 classes(() => ({test1: () => () => true, test2: () => () => false}))
 // 'test1'
 ```
-#### Iterable
+##### Iterable
 If the type can be iterable then `html-classes` goes through values.
 ```javascript
 classes(new Set(['test1', 'test2']))
@@ -109,7 +109,7 @@ class Test extends Custom {
 classes(new Test())
 // 'test1 test2 test3'
 ```
-#### Other
+##### Other
 Any other type will be ignored.
 ```javascript
 classes() // ''
@@ -123,5 +123,17 @@ classes(1) // ''
 classes(NaN) // ''
 classes(Symbol('test')) // ''
 ```
+##### Light
+The most performed way is using of [light](https://github.com/d8corp/html-classes/blob/master/lib/light.js) or [light minified](https://github.com/d8corp/html-classes/blob/master/lib/classes.light.js) version.
+```javascript
+import classes from 'html-classes/light'
+```
+or
+```javascript
+const classes = require('html-classes/light')
+```
+The version does not support [Iterable](https://www.npmjs.com/package/html-classes#iterable) functionality.  
+But you can look at [performance test](https://jsperf.com/classnames-vs-htmlclasses) vs [classnames](https://www.npmjs.com/package/classnames).  
+Check on the different browsers.
 ## Issues
 If you find a bug, please file an issue on [GitHub](https://github.com/d8corp/html-classes/issues).

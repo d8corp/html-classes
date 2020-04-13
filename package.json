@@ -1,6 +1,6 @@
 {
   "name": "html-classes",
-  "version": "1.0.0-rc3",
+  "version": "1.0.0-rc4",
   "description": "Combine html classes",
   "main": "index.js",
   "module": "index.es6.js",

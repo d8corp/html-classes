@@ -43,7 +43,7 @@ function classes () {
 }
 
 function isIterable (value: object): value is any[] {
-  return Symbol.iterator in value
+  return 'Symbol' in window ? Symbol.iterator in value : Array.isArray(value)
 }
 
 classes.isIterable = isIterable
