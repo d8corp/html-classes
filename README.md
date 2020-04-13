@@ -81,7 +81,23 @@ classes(new Map([
 ]))
 // 'test1 test2'
 
-class Test {
+class Custom {
+  test1 () {
+    return true
+  }
+  test2 () {
+    return false
+  }
+  get test3 () {
+    return true
+  }
+  dynamicTest = true
+}
+
+classes(new Custom())
+// 'dynamicTest test1 test3'
+
+class Test extends Custom {
   *[Symbol.iterator] () {
     let i = 0
     while (i++ < 3) {
