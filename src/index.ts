@@ -1,4 +1,6 @@
-export default function classes (value?: any, ...other: any[]): string {
+function classes (...values: any[]): string
+function classes () {
+  let value = arguments[0]
   while (typeof value === 'function') {
     value = value()
   }
@@ -25,16 +27,18 @@ export default function classes (value?: any, ...other: any[]): string {
         }
       }
     }
-  } else if (typeof value !== 'string') {
+  }
+  else if (typeof value !== 'string') {
     value = ''
   }
 
-  if (other.length) {
-    const otherValue = classes(...other)
-    if (otherValue) {
-      value += (value ? ' ' : '') + otherValue
+  for (let i = 1; i < arguments.length; i++) {
+    const subValue = classes(arguments[i])
+    if (subValue) {
+      value += (value ? ' ' : '') + subValue
     }
   }
+
   return value
 }
 
@@ -43,3 +47,5 @@ function isIterable (value: object): value is any[] {
 }
 
 classes.isIterable = isIterable
+
+export default classes
