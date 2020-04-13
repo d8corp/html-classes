@@ -51,7 +51,20 @@ describe('classes', () => {
     expect(classes(map)).toBe('test1 test2')
   })
   test('custom', () => {
-    class Test {
+    class Custom {
+      test1 () {
+        return true
+      }
+      test2 () {
+        return false
+      }
+      get test3 () {
+        return true
+      }
+      dynamicTest = true
+    }
+    expect(classes(new Custom())).toBe('dynamicTest test1 test3')
+    class Test extends Custom {
       *[Symbol.iterator] () {
         let i = 0
         while (i++ < 3) {
@@ -59,7 +72,6 @@ describe('classes', () => {
         }
       }
     }
-    const test = new Test()
-    expect(classes(test)).toBe('test1 test2 test3')
+    expect(classes(new Test())).toBe('test1 test2 test3')
   })
 })
