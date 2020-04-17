@@ -43,7 +43,7 @@ function classes () {
 }
 
 function isIterable (value: object): value is any[] {
-  return 'Symbol' in window ? Symbol.iterator in value : Array.isArray(value)
+  return typeof Symbol === 'undefined' ? Array.isArray(value) : Symbol.iterator in value
 }
 
 classes.isIterable = isIterable
