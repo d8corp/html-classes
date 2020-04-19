@@ -134,6 +134,7 @@ const classes = require('html-classes/light')
 ```
 The version does not support [Iterable](#iterable) functionality.  
 But you can look at [performance test](https://jsperf.com/classnames-vs-htmlclasses) vs [classnames](https://www.npmjs.com/package/classnames).  
+Also you can look at [performance test](https://jsperf.com/classnames-vs-html-classes-vs-merge-class-names) vs [merge-class-names](https://www.npmjs.com/package/merge-class-names).  
 Check on the different browsers.
 ## Issues
 If you find a bug, please file an issue on [GitHub](https://github.com/d8corp/html-classes/issues).
