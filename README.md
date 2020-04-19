@@ -1,5 +1,5 @@
 # html-classes
-[![NPM](https://img.shields.io/npm/v/html-classes.svg)](https://www.npmjs.com/package/html-classes) [![NPM](https://img.shields.io/npm/dm/html-classes.svg)](https://www.npmjs.com/package/html-classes)  
+[![NPM](https://img.shields.io/npm/v/html-classes.svg)](https://www.npmjs.com/package/html-classes) ![downloads](https://img.shields.io/npm/dt/html-classes.svg) ![downloads](https://img.shields.io/npm/dm/html-classes.svg)  
 This is the simple converter from any type to string of HTML classes.
 ## Installation
 ```bash
