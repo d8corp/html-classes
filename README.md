@@ -68,19 +68,9 @@ classes(() => ['test1', 'test2'])
 classes(() => ({test1: () => () => true, test2: () => () => false}))
 // 'test1'
 ```
-##### Iterable
-If the type can be iterable then `html-classes` goes through values.
+##### Class
+Any instance of class will be handled the same as an object.
 ```javascript
-classes(new Set(['test1', 'test2']))
-// 'test1 test2'
-
-classes(new Map([
-  ['test1', false],
-  ['', 'test2'],
-  [undefined, null]
-]))
-// 'test1 test2'
-
 class Custom {
   test1 () {
     return true
@@ -96,8 +86,21 @@ class Custom {
 
 classes(new Custom())
 // 'dynamicTest test1 test3'
+```
+##### Iterable
+If the type can be iterable then `html-classes` goes through values.
+```javascript
+classes(new Set(['test1', 'test2']))
+// 'test1 test2'
 
-class Test extends Custom {
+classes(new Map([
+  ['test1', false],
+  ['', 'test2'],
+  [undefined, null]
+]))
+// 'test1 test2'
+
+class Test {
   *[Symbol.iterator] () {
     let i = 0
     while (i++ < 3) {
@@ -136,5 +139,17 @@ The version does not support [Iterable](#iterable) functionality.
 But you can look at [performance test](https://jsperf.com/classnames-vs-htmlclasses) vs [classnames](https://www.npmjs.com/package/classnames).  
 Also you can look at [performance test](https://jsperf.com/classnames-vs-html-classes-vs-merge-class-names) vs [merge-class-names](https://www.npmjs.com/package/merge-class-names).  
 Check on the different browsers.
+##### Alone string
+If you are going to use the function to handle only one argument you should keep in mind that the argument often maybe just a string.
+```javascript
+function createElement (type, classNames = '') {
+  const element = document.createElement(type)
+  if (classes) {
+    element.className = classes(classNames)
+  }
+  return element
+}
+```
+[This test](https://jsperf.com/classnames-vs-html-classes-vs-merge-class-names-test1) shows the difference between the above libraries.
 ## Issues
 If you find a bug, please file an issue on [GitHub](https://github.com/d8corp/html-classes/issues).
