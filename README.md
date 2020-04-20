@@ -149,4 +149,5 @@ function createElement (type, classNames = '') {
 ## Issues
 If you find a bug, please file an issue on [GitHub](https://github.com/d8corp/html-classes/issues)  
 
-![downloads](https://img.shields.io/github/stars/d8corp/html-classes?style=social)  ![downloads](https://img.shields.io/github/watchers/d8corp/html-classes?style=social)
+[![downloads](https://img.shields.io/github/stars/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)
+[![downloads](https://img.shields.io/github/watchers/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)
