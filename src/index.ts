@@ -1,10 +1,11 @@
 function classes (...values: any[]): string
 function classes () {
   let value = arguments[0]
-  while (typeof value === 'function') {
+  let valueType
+  while ((valueType = typeof value) === 'function') {
     value = value()
   }
-  if (typeof value === 'object' && value !== null) {
+  if (valueType === 'object' && value !== null) {
     if (isIterable(value)) {
       const values = value
       value = ''
@@ -28,7 +29,7 @@ function classes () {
       }
     }
   }
-  else if (typeof value !== 'string') {
+  else if (valueType !== 'string') {
     value = ''
   }
 
@@ -42,9 +43,7 @@ function classes () {
   return value
 }
 
-function isIterable (value: object): value is any[] {
-  return typeof Symbol === 'undefined' ? Array.isArray(value) : Symbol.iterator in value
-}
+const isIterable = typeof Symbol === 'undefined' ? value => Symbol.iterator in value : value => Array.isArray(value)
 
 classes.isIterable = isIterable
 
