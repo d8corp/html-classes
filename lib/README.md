@@ -148,5 +148,7 @@ function createElement (type, classNames = '') {
 [This test](https://jsperf.com/classnames-vs-html-classes-vs-merge-class-names-test1) shows the difference between the above libraries.
 ## Issues
 If you find a bug, please file an issue on [GitHub](https://github.com/d8corp/html-classes/issues)  
-
-![downloads](https://img.shields.io/github/stars/d8corp/html-classes?style=social)  ![downloads](https://img.shields.io/github/watchers/d8corp/html-classes?style=social)
+[![issues](https://img.shields.io/github/issues-raw/d8corp/html-classes)](https://github.com/d8corp/html-classes/issues)  
+ 
+[![stars](https://img.shields.io/github/stars/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)
+[![watchers](https://img.shields.io/github/watchers/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)

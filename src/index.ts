@@ -47,4 +47,6 @@ const isIterable = typeof Symbol === 'undefined' ? value => Symbol.iterator in v
 
 classes.isIterable = isIterable
 
+export type ClassesArgument = (() => ClassesArgument) | string | {[key: string]: any} | ClassesArgument[]
+
 export default classes
