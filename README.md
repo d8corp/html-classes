@@ -139,7 +139,7 @@ If you are going to use the function to handle only one argument you should keep
 ```javascript
 function createElement (type, classNames = '') {
   const element = document.createElement(type)
-  if (classes) {
+  if (classNames) {
     element.className = classes(classNames)
   }
   return element
