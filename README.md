@@ -84,11 +84,11 @@ class Custom {
   get test3 () {
     return true
   }
-  dynamicTest = true
+  field = true
 }
 
 classes(new Custom())
-// 'dynamicTest test1 test3'
+// 'field'
 ```
 ##### Other
 Any other type will be ignored.
