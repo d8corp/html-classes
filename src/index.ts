@@ -1,6 +1,6 @@
-function classes (...values: any[]): string
-function classes () {
-  let value = arguments[0]
+export type ClassesArgument = (() => ClassesArgument) | string | {[key: string]: any} | ClassesArgument[]
+
+function classes (value: any): string {
   let valueType
   while ((valueType = typeof value) === 'function') {
     value = value()
@@ -30,23 +30,28 @@ function classes () {
     }
   }
   else if (valueType !== 'string') {
-    value = ''
-  }
-
-  for (let i = 1; i < arguments.length; i++) {
-    const subValue = classes(arguments[i])
-    if (subValue) {
-      value += (value ? ' ' : '') + subValue
-    }
+    return ''
   }
 
   return value
 }
 
-const isIterable = typeof Symbol === 'undefined' ? value => Symbol.iterator in value : value => Array.isArray(value)
+function htmlClasses (...values: ClassesArgument[]): string
+function htmlClasses (...values: any[]): string
+function htmlClasses (): string {
+  let value = ''
+  for (let i = 0; i < arguments.length; i++) {
+    const subValue = classes(arguments[i])
+    if (subValue) {
+      value += (value ? ' ' : '') + subValue
+    }
+  }
+  return value
+}
 
-classes.isIterable = isIterable
+const isIterable = typeof Symbol === 'undefined' ? value => Array.isArray(value) : value => Symbol.iterator in value
 
-export type ClassesArgument = (() => ClassesArgument) | string | {[key: string]: any} | ClassesArgument[]
+htmlClasses.isIterable = isIterable
+htmlClasses.classes = classes
 
-export default classes
+export default htmlClasses

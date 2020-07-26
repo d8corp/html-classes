@@ -18,6 +18,11 @@ export default [{
   plugins: [
     typescript({
       typescript: require('typescript'),
+      tsconfigOverride: {
+        compilerOptions: {
+          target: 'es5'
+        }
+      }
     })
   ]
 }, {
@@ -29,12 +34,7 @@ export default [{
   },
   plugins: [
     typescript({
-      typescript: require('typescript'),
-      tsconfigOverride: {
-        compilerOptions: {
-          target: 'es6'
-        }
-      }
+      typescript: require('typescript')
     })
   ]
 }, {
@@ -48,7 +48,12 @@ export default [{
   },
   plugins: [
     typescript({
-      typescript: require('typescript')
+      typescript: require('typescript'),
+      tsconfigOverride: {
+        compilerOptions: {
+          target: 'es5'
+        }
+      }
     })
   ]
 }]

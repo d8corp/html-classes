@@ -61,9 +61,9 @@ describe('classes', () => {
       get test3 () {
         return true
       }
-      dynamicTest = true
+      test = true
     }
-    expect(classes(new Custom())).toBe('dynamicTest test1 test3')
+    expect(classes(new Custom())).toBe('test')
     class Test extends Custom {
       *[Symbol.iterator] () {
         let i = 0
