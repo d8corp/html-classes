@@ -28,8 +28,7 @@ function classes (value: any): string {
         }
       }
     }
-  }
-  else if (valueType !== 'string') {
+  } else if (valueType !== 'string') {
     return ''
   }
 

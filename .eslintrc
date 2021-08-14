@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": "standard",
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-console": "off",
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-absolute-path": "off",
+    "no-use-before-define": "off",
+    "no-redeclare": "off",
+    "no-unused-vars": "off",
+    "new-cap": "off",
+    "symbol-description": "off"
+  }
+}

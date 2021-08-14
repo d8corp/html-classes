@@ -27,15 +27,15 @@ describe('classes', () => {
     expect(classes(['test1', ['test2', 'test3', false]])).toBe('test1 test2 test3')
   })
   test('object', () => {
-    expect(classes({test: true})).toBe('test')
-    expect(classes({test1: true, test2: 1, test3: NaN})).toBe('test1 test2')
-    expect(classes({test1: () => true, test2: () => false})).toBe('test1')
+    expect(classes({ test: true })).toBe('test')
+    expect(classes({ test1: true, test2: 1, test3: NaN })).toBe('test1 test2')
+    expect(classes({ test1: () => true, test2: () => false })).toBe('test1')
   })
   test('function', () => {
     expect(classes(() => 'test')).toBe('test')
     expect(classes(() => ['test1', 'test2'])).toBe('test1 test2')
-    expect(classes(() => ({test1: () => true, test2: () => false}))).toBe('test1')
-    expect(classes(() => ({test1: () => () => true, test2: () => () => false}))).toBe('test1')
+    expect(classes(() => ({ test1: () => true, test2: () => false }))).toBe('test1')
+    expect(classes(() => ({ test1: () => () => true, test2: () => () => false }))).toBe('test1')
   })
   test('Set', () => {
     expect(classes(new Set(['test1', 'test2']))).toBe('test1 test2')
@@ -44,7 +44,7 @@ describe('classes', () => {
     const mapValues = [
       ['test1', false],
       ['', 'test2'],
-      [123, null]
+      [123, null],
     ]
     // @ts-ignore
     const map = new Map(mapValues)
@@ -55,17 +55,20 @@ describe('classes', () => {
       test1 () {
         return true
       }
+
       test2 () {
         return false
       }
+
       get test3 () {
         return true
       }
+
       test = true
     }
     expect(classes(new Custom())).toBe('test')
     class Test extends Custom {
-      *[Symbol.iterator] () {
+      * [Symbol.iterator] () {
         let i = 0
         while (i++ < 3) {
           yield `test${i}`
