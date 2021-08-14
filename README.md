@@ -38,7 +38,7 @@ Or you can use [minified file](https://github.com/d8corp/html-classes/blob/maste
 
 ## Usage
 
-#### String
+### String
 
 Any string value provides as is.
 ```javascript
@@ -49,7 +49,7 @@ classes('test1', 'test2')
 // 'test1 test2'
 ```
 
-#### Array
+### Array
 
 Any array spreads like the `flat` method of an array.
 ```javascript
@@ -59,27 +59,42 @@ classes(['test'])
 classes(['test1', 'test2'])
 // 'test1 test2'
 
-classes(['test1', ['test2']], 'test3')
+classes(
+  [
+    'test1',
+    ['test2'],
+  ],
+  'test3',
+)
 // 'test1 test2 test3'
 ```
 
-#### Object
+### Object
 
 The key of the object will be used as a class when the value equals true.
 ```javascript
-classes({test: true})
+classes({
+  test: true,
+})
 // 'test'
 
-classes({test1: true, test2: 1, test3: NaN})
+classes({
+  test1: true,
+  test2: 1,
+  test3: NaN,
+})
 // 'test1 test2'
 
-classes({test1: () => true, test2: () => false})
+classes({
+  test1: () => true,
+  test2: () => false,
+})
 // 'test1'
 ```
 
 > The last example works that 'cause of the next definition.
 
-#### Function
+### Function
 
 Any function will be called.
 ```javascript
@@ -89,11 +104,14 @@ classes(() => 'test')
 classes(() => ['test1', 'test2'])
 // 'test1 test2'
 
-classes(() => ({test1: () => () => true, test2: () => () => false}))
+classes(() => ({
+  test1: () => () => true,
+  test2: () => () => false,
+}))
 // 'test1'
 ```
 
-#### Class
+### Class
 
 Any instance of class will be handled the same as an object.
 ```javascript
@@ -101,12 +119,15 @@ class Custom {
   test1 () {
     return true
   }
+
   test2 () {
     return false
   }
+
   get test3 () {
     return true
   }
+
   field = true
 }
 
@@ -114,7 +135,7 @@ classes(new Custom())
 // 'field'
 ```
 
-#### Other
+### Other
 
 Any other type will be ignored.
 ```javascript
@@ -127,10 +148,10 @@ classes(0) // ''
 classes(-1) // ''
 classes(1) // ''
 classes(NaN) // ''
-classes(Symbol('test')) // ''
+classes(Symbol()) // ''
 ```
 
-#### ES6
+## ES6
 
 For the [ES6](https://github.com/d8corp/html-classes/blob/master/lib/es6.js) version, you can use iterable functionality.   
 If the type can be iterable then `html-classes` goes through values.
@@ -141,13 +162,14 @@ classes(new Set(['test1', 'test2']))
 classes(new Map([
   ['test1', false],
   ['', 'test2'],
-  [undefined, null]
+  [undefined, null],
 ]))
 // 'test1 test2'
 
 class Test {
-  *[Symbol.iterator] () {
+  * [Symbol.iterator] () {
     let i = 0
+
     while (i++ < 3) {
       yield `test${i}`
     }
