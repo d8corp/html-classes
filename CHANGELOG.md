@@ -1,3 +1,10 @@
+## v1.2
+
+### v1.2.0 [![14.08.2021](https://img.shields.io/date/1628932414)](https://github.com/d8corp/watch-state/tree/v1.2.0)
+
+- updated readme
+- added linting
+
 ## v1.1
 
 ### v1.1.3 [![13.08.2021](https://img.shields.io/date/1628806723)](https://github.com/d8corp/watch-state/tree/v1.1.3)
