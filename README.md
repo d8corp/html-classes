@@ -4,9 +4,11 @@
 [![minzipped size](https://img.shields.io/bundlephobia/minzip/html-classes)](https://bundlephobia.com/package/html-classes)
 [![downloads](https://img.shields.io/npm/dm/html-classes.svg)](https://www.npmtrends.com/html-classes)
 [![changelog](https://img.shields.io/badge/Changelog-⋮-brightgreen)](https://changelogs.xyz/html-classes)
-[![license](https://img.shields.io/npm/l/html-classes)](https://github.com/d8corp/html-classest/blob/master/LICENSE)
+[![license](https://img.shields.io/npm/l/html-classes)](https://github.com/d8corp/html-classes/blob/master/LICENSE)
 
 Simple converter from `any` type to `string` of **HTML classes**.
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 [![stars](https://img.shields.io/github/stars/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)
 [![watchers](https://img.shields.io/github/watchers/d8corp/html-classes?style=social)](https://github.com/d8corp/html-classes)
@@ -36,7 +38,7 @@ Or you can use [minified file](https://github.com/d8corp/html-classes/blob/maste
 
 ## Usage
 
-##### String
+#### String
 
 Any string value provides as is.
 ```javascript
@@ -47,7 +49,7 @@ classes('test1', 'test2')
 // 'test1 test2'
 ```
 
-##### Array
+#### Array
 
 Any array spreads like the `flat` method of an array.
 ```javascript
@@ -61,7 +63,7 @@ classes(['test1', ['test2']], 'test3')
 // 'test1 test2 test3'
 ```
 
-##### Object
+#### Object
 
 The key of the object will be used as a class when the value equals true.
 ```javascript
@@ -77,7 +79,7 @@ classes({test1: () => true, test2: () => false})
 
 > The last example works that 'cause of the next definition.
 
-##### Function
+#### Function
 
 Any function will be called.
 ```javascript
@@ -91,7 +93,7 @@ classes(() => ({test1: () => () => true, test2: () => () => false}))
 // 'test1'
 ```
 
-##### Class
+#### Class
 
 Any instance of class will be handled the same as an object.
 ```javascript
@@ -112,7 +114,7 @@ classes(new Custom())
 // 'field'
 ```
 
-##### Other
+#### Other
 
 Any other type will be ignored.
 ```javascript
@@ -128,7 +130,7 @@ classes(NaN) // ''
 classes(Symbol('test')) // ''
 ```
 
-##### ES6
+#### ES6
 
 For the [ES6](https://github.com/d8corp/html-classes/blob/master/lib/es6.js) version, you can use iterable functionality.   
 If the type can be iterable then `html-classes` goes through values.
@@ -156,7 +158,7 @@ classes(new Test())
 // 'test1 test2 test3'
 ```
 
-##### Alternatives
+## Alternatives
 
 - [classnames](https://www.npmjs.com/package/classnames)
 - [merge-class-names](https://www.npmjs.com/package/merge-class-names)
