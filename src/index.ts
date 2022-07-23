@@ -1,7 +1,8 @@
 export type ClassesArray<K extends string = string> = ClassesArgument<K>[]
 export type ClassesFunction<K extends string = string> = () => ClassesArgument<K>
 export type ClassesMeta<K extends string = string> = {[T in K]?: any}
-export type ClassesArgument<K extends string = string> = ClassesFunction<K> | string | symbol | ClassesMeta<K> | ClassesArray<K>
+export type Primitives = string | symbol | undefined | number | boolean | null
+export type ClassesArgument<K extends string = string> = ClassesFunction<K> | Primitives | ClassesMeta<K> | ClassesArray<K>
 
 export const isIterable = typeof Symbol === 'undefined'
   ? (value): value is {[Symbol.iterator]} => Array.isArray(value)

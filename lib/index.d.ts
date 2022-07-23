@@ -3,7 +3,8 @@ export declare type ClassesFunction<K extends string = string> = () => ClassesAr
 export declare type ClassesMeta<K extends string = string> = {
     [T in K]?: any;
 };
-export declare type ClassesArgument<K extends string = string> = ClassesFunction<K> | string | symbol | ClassesMeta<K> | ClassesArray<K>;
+export declare type Primitives = string | symbol | undefined | number | boolean | null;
+export declare type ClassesArgument<K extends string = string> = ClassesFunction<K> | Primitives | ClassesMeta<K> | ClassesArray<K>;
 export declare const isIterable: (value: any) => value is {
     [Symbol.iterator]: any;
 };
