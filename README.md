@@ -6,7 +6,7 @@
 [![changelog](https://img.shields.io/badge/Changelog-⋮-brightgreen)](https://changelogs.xyz/html-classes)
 [![license](https://img.shields.io/npm/l/html-classes)](https://github.com/d8corp/html-classes/blob/master/LICENSE)
 
-Simple converter from `any` type to `string` of **HTML classes**.
+Simple generator `string` of **HTML classes**.
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
@@ -44,9 +44,6 @@ Any string value provides as is.
 ```javascript
 classes('test')
 // 'test'
-
-classes('test1', 'test2')
-// 'test1 test2'
 ```
 
 ### Array
@@ -59,19 +56,17 @@ classes(['test'])
 classes(['test1', 'test2'])
 // 'test1 test2'
 
-classes(
-  [
-    'test1',
-    ['test2'],
-  ],
+classes([
+  'test1',
+  ['test2'],
   'test3',
-)
+])
 // 'test1 test2 test3'
 ```
 
 ### Object
 
-The key of the object will be used as a class when the value equals true.
+A key of an object will be used as a class when the value equals true.
 ```javascript
 classes({
   test: true,
@@ -178,6 +173,14 @@ class Test {
 
 classes(new Test())
 // 'test1 test2 test3'
+```
+
+## TypeScript
+TypesScript in the box.
+You can provide a generic variable to define object keys.
+
+```typescript
+classes<'test1' | 'test2'>({ test1: true })
 ```
 
 ## Alternatives

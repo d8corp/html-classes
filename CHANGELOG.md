@@ -1,3 +1,11 @@
+## v2.0
+
+### v2.0.0 [![23.08.2022](https://img.shields.io/date/1658573911)](https://github.com/d8corp/watch-state/tree/v2.0.0)
+
+- add generic types
+- reduce multiple arguments
+- improve performance and bundle size
+
 ## v1.2
 
 ### v1.2.0 [![14.08.2021](https://img.shields.io/date/1628932414)](https://github.com/d8corp/watch-state/tree/v1.2.0)

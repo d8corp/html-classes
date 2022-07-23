@@ -18,8 +18,8 @@ describe('classes', () => {
   })
   test('string', () => {
     expect(classes('test')).toBe('test')
-    expect(classes('test1', 'test2')).toBe('test1 test2')
-    expect(classes('test1', 'test2', 'test3')).toBe('test1 test2 test3')
+    expect(classes(['test1', 'test2'])).toBe('test1 test2')
+    expect(classes(['test1', 'test2', 'test3'])).toBe('test1 test2 test3')
   })
   test('array', () => {
     expect(classes(['test'])).toBe('test')

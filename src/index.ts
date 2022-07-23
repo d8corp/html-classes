@@ -1,56 +1,52 @@
-export type ClassesArgument = (() => ClassesArgument) | string | {[key: string]: any} | ClassesArgument[]
+export type ClassesArray<K extends string = string> = ClassesArgument<K>[]
+export type ClassesFunction<K extends string = string> = () => ClassesArgument<K>
+export type ClassesMeta<K extends string = string> = {[T in K]?: any}
+export type ClassesArgument<K extends string = string> = ClassesFunction<K> | string | symbol | ClassesMeta<K> | ClassesArray<K>
 
-function classes (value: any): string {
-  let valueType
-  while ((valueType = typeof value) === 'function') {
-    value = value()
+export const isIterable = typeof Symbol === 'undefined'
+  ? (value): value is {[Symbol.iterator]} => Array.isArray(value)
+  : (value): value is {[Symbol.iterator]} => Symbol.iterator in value
+
+export function classes <S extends string> (value?: ClassesArgument<S>): string {
+  if (typeof value === 'string') {
+    return value
   }
-  if (valueType === 'object' && value !== null) {
+
+  if (typeof value === 'object' && value !== null) {
+    let result = ''
+
     if (isIterable(value)) {
-      const values = value
-      value = ''
-      for (let subValue of values) {
+      for (let subValue of value) {
         subValue = classes(subValue)
+
         if (subValue) {
-          value += (value ? ' ' : '') + subValue
+          result += (result ? ' ' : '') + subValue
         }
       }
     } else {
-      const values = value
-      value = ''
-      for (const key in values) {
-        let subValue = values[key]
+      for (const key in value) {
+        let subValue = value[key]
+
         while (typeof subValue === 'function') {
           subValue = subValue()
         }
+
         if (subValue) {
-          value += (value ? ' ' : '') + key
+          result += (result ? ' ' : '') + key
         }
       }
     }
-  } else if (valueType !== 'string') {
-    return ''
+
+    return result
   }
 
-  return value
-}
-
-function htmlClasses (...values: ClassesArgument[]): string
-function htmlClasses (...values: any[]): string
-function htmlClasses (): string {
-  let value = ''
-  for (let i = 0; i < arguments.length; i++) {
-    const subValue = classes(arguments[i])
-    if (subValue) {
-      value += (value ? ' ' : '') + subValue
-    }
+  if (value instanceof Function) {
+    return classes(value())
   }
-  return value
+
+  return ''
 }
 
-const isIterable = typeof Symbol === 'undefined' ? value => Array.isArray(value) : value => Symbol.iterator in value
+classes.isIterable = isIterable
 
-htmlClasses.isIterable = isIterable
-htmlClasses.classes = classes
-
-export default htmlClasses
+export default classes
