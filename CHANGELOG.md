@@ -1,10 +1,14 @@
 ## v2.0
 
-### v2.0.1 [![24.08.2022](https://img.shields.io/date/1658612829)](https://github.com/d8corp/html-classes/tree/v2.0.1)
+### v2.0.2 [![13.08.2022](https://img.shields.io/date/1660399694)](https://github.com/d8corp/html-classes/tree/v2.0.2)
 
 - fix types
 
-### v2.0.0 [![23.08.2022](https://img.shields.io/date/1658573911)](https://github.com/d8corp/html-classes/tree/v2.0.0)
+### v2.0.1 [![24.07.2022](https://img.shields.io/date/1658612829)](https://github.com/d8corp/html-classes/tree/v2.0.1)
+
+- fix types
+
+### v2.0.0 [![23.07.2022](https://img.shields.io/date/1658573911)](https://github.com/d8corp/html-classes/tree/v2.0.0)
 
 - add generic types
 - reduce multiple arguments
